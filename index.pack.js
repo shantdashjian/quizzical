@@ -30475,6 +30475,8 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _react = __webpack_require__(2);
 
 var _react2 = _interopRequireDefault(_react);
@@ -30482,13 +30484,38 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function () {
+	// https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple
+	var _React$useState = _react2.default.useState('start'),
+	    _React$useState2 = _slicedToArray(_React$useState, 2),
+	    page = _React$useState2[0],
+	    setPage = _React$useState2[1];
+
 	return _react2.default.createElement(
 		'main',
 		null,
-		_react2.default.createElement(
+		page == 'start' && _react2.default.createElement(
+			'div',
+			{ className: 'start--container' },
+			_react2.default.createElement(
+				'h1',
+				{ className: 'start--heading' },
+				'Quizzical'
+			),
+			_react2.default.createElement(
+				'h2',
+				{ className: 'start--description' },
+				'Test Your Knowledge about Mythology!'
+			),
+			_react2.default.createElement(
+				'button',
+				{ className: 'start--button' },
+				'Start the Adventure!'
+			)
+		),
+		page == 'questions' && _react2.default.createElement(
 			'h1',
 			null,
-			'Hello App'
+			'Questions'
 		)
 	);
 };

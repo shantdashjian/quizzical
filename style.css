@@ -1,4 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+/*font-family: 'Inter', sans-serif;*/
+/*font-family: 'Karla', sans-serif;*/
 * {
     box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("images/forest.jpeg");
+    background-size: cover;
+    color: #293264;
+}
+
+main {
+    height: 100vh;
+}
+
+main, .start--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.start--container {
+    gap: 1.5em;
+    background: rgba(245, 247, 251, 0.8);
+    padding: 3em;
+    border-radius: 5px;
+    border: 2px solid #4D5B9E;
+}
+
+h1, h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.start--heading {
+    font-family: 'Karla', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0em;
+}
+
+.start--description {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+.start--button {
+    background: #4D5B9E;
+    color: #F5F7FB;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: 0em;
+    text-align: center;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 8px;
+}
+
+button:hover,
+button:focus {
+    cursor: pointer;
 }
 
