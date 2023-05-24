@@ -1,6 +1,10 @@
+const path = require('path');
+
 module.exports = {
+  "mode": 'development',
   "output": {
-    "filename": "[name].pack.js"
+    "filename": "[name].pack.js",
+    "path": path.resolve(__dirname),
   },
   "module": {
     "rules": [
