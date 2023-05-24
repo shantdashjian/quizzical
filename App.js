@@ -1,20 +1,21 @@
 import React from 'react'
+import Start from './components/Start'
+import Questions from './components/Questions'
 
 export default () => {
-	// https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple
 	const [ page, setPage ] = React.useState('start')
+
+	function startGame() {
+		setPage('questions')
+	}
 
 	return (
 		<main>
 			{page == 'start' &&
-				<div className="start--container">
-					<h1 className="start--heading">Quizzical</h1>
-					<h2 className="start--description">Test Your Knowledge about Mythology!</h2>
-					<button className="start--button">Start the Adventure!</button>
-				</div>
+				<Start startGame={startGame}/>
 			}
 			{page == 'questions' && (
-				<h1>Questions</h1>
+				<Questions />
 			)}
 		</main>
 	)
