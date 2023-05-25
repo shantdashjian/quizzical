@@ -148,6 +148,7 @@ button:focus {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1em;
 }
 
 .check-answers-button, .play-again-button {
@@ -186,10 +187,6 @@ button:focus {
     .questions--container, .error--container {
         padding: 3em 2em 1.7em;
         width: 90%;
-    }
-
-    .results-container {
-        display: block;
     }
 
     .start--container {
