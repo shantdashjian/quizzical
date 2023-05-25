@@ -49,7 +49,7 @@ main {
 }
 
 .start--container {
-    padding: 2.5em;
+    padding: 1.5em;
 }
 
 .questions--container, .error--container {
@@ -143,6 +143,13 @@ button:focus {
     background: var(--ANSWERED);
 }
 
+.results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .check-answers-button, .play-again-button {
     background: var(--DARK-BORDER);
     color: var(--LIGHT-TEXT);
@@ -179,6 +186,15 @@ button:focus {
     .questions--container, .error--container {
         padding: 3em 2em 1.7em;
         width: 90%;
+    }
+
+    .results-container {
+        display: block;
+    }
+
+    .start--container {
+        width: 80%;
+        max-width: 400px;
     }
 }
 

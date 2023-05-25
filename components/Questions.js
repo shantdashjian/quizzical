@@ -83,7 +83,7 @@ export default ({startGame}) => {
 				</div>
 			)}
 			{showAnswers && (
-				<div>
+				<div className="results-container">
 					<span className="total-score-text">You scored {totalScore} correct answers in {timeToAnswerInSeconds} seconds!</span>
 					<button className="play-again-button" onClick={play}>Play again</button>
 				</div>
