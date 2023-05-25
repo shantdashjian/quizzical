@@ -6,6 +6,8 @@ export default ({startGame}) => {
 	const [questionsData, setQuestionsData] = React.useState([])
 	const [showAnswers, setShowAnswers] = React.useState(false)
 	const [errorMessage, setErrorMessage] = React.useState(null)
+	const [startTime, setStartTime] = React.useState(null)
+
 	const minQuestionsLoadingDelay = 2000
 
 	const totalScore =
@@ -13,6 +15,8 @@ export default ({startGame}) => {
 			questionData => questionData.userAnswer == questionData.correct_answer
 		).length} 
 		/ ${questionsData.length}`
+
+	const timeToAnswerInSeconds = ((Date.now() - startTime) / 1000).toFixed(1)
 
 	React.useEffect(() => {
 		play()
@@ -29,6 +33,7 @@ export default ({startGame}) => {
 				setTimeout(() => {
 					setQuestionsData(data.results)
 					setShowAnswers(false)
+					setStartTime(Date.now())
 				}, delay)
 			})
 			.catch(error => {
@@ -79,7 +84,7 @@ export default ({startGame}) => {
 			)}
 			{showAnswers && (
 				<div>
-					<span className="total-score-text">You scored {totalScore} correct answers</span>
+					<span className="total-score-text">You scored {totalScore} correct answers in {timeToAnswerInSeconds} seconds!</span>
 					<button className="play-again-button" onClick={play}>Play again</button>
 				</div>
 			)}

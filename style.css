@@ -46,7 +46,7 @@ main {
     background: var(--TRANSPARENT-BACKGROUND);
     border-radius: 5px;
     border: 2px solid var(--DARK-BORDER);
-    max-width: 550px;
+    max-width: 600px;
 }
 
 .start--container {
@@ -54,7 +54,7 @@ main {
 }
 
 .questions--container, .error--container {
-    padding: 3em 5em 1.7em;
+    padding: 3em 4.5em 1.7em;
 }
 
 h1, h2, h3 {
@@ -169,7 +169,7 @@ button:focus {
     font-family: 'Inter', sans-serif;
     font-size: 0.8rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 2;
     letter-spacing: 0em;
     text-align: center;
     margin-right: 1.8em;
