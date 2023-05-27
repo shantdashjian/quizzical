@@ -4,29 +4,30 @@ import {shuffle} from '../utils'
 
 export default (props) => {
 
-	const [ data, setData ] = React.useState(props.data)
+	const [ questionData, setQuestionData ] = React.useState(props.questionData)
 
 	const [ allAnswers ] = React.useState(
-		shuffle([props.data.correct_answer, ...props.data.incorrect_answers])
+		shuffle([props.questionData.correct_answer, ...props.questionData.incorrect_answers])
 	)
 
 	const answerButtons = allAnswers.map((answerText, index) => {
+		const disabled = props.showAnswers
 		let className = "answer-button"
 		if (props.showAnswers) {
-			if (answerText == data.correct_answer) {
+			if (answerText === questionData.correct_answer) {
 				className += " correct-answer"
-			} else if (answerText == data.userAnswer) {
+			} else if (answerText === questionData.userAnswer) {
 				className += " incorrect-answer"
 			}
-		} else if (answerText == data.userAnswer) {
+		} else if (answerText === questionData.userAnswer) {
 				className += " answered"
 		}
-		return <button key={index} className={className} onClick={answer}>{answerText}</button>
+		return <button key={index} className={className} onClick={answer} disabled={disabled}>{answerText}</button>
 	})
 
 	function answer(event) {
 		const answerText = event.target.textContent
-		setData(prev => (
+		setQuestionData(prev => (
 			{...prev, userAnswer: answerText}
 		))
 		props.answer(props.questionIndex, answerText)
@@ -34,7 +35,7 @@ export default (props) => {
 
 	return (
 		<div className="question--container">
-			<h3 className="question--text">{decode(props.data.question)}</h3>
+			<h3 className="question--text">{decode(questionData.question)}</h3>
 			<div className="answer-buttons">
 				{answerButtons}
 			</div>

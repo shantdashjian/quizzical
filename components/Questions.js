@@ -1,7 +1,7 @@
 import React from 'react'
 import Question from './Question'
 
-export default ({startGame}) => {
+export default () => {
 
 	const [questionsData, setQuestionsData] = React.useState([])
 	const [showAnswers, setShowAnswers] = React.useState(false)
@@ -12,7 +12,7 @@ export default ({startGame}) => {
 
 	const totalScore =
 		`${questionsData.filter(
-			questionData => questionData.userAnswer == questionData.correct_answer
+			questionData => questionData.userAnswer === questionData.correct_answer
 		).length} 
 		/ ${questionsData.length}`
 
@@ -28,6 +28,9 @@ export default ({startGame}) => {
 		fetch("https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple")
 			.then(res => res.json())
 			.then(data => {
+				if (data.results.length === 0) {
+					throw Error('No results were sent back from the questions database!')
+				}
 				const elapsedTime = Date.now() - startTime;
 				const delay = Math.max(minQuestionsLoadingDelay - elapsedTime, 0);
 				setTimeout(() => {
@@ -42,13 +45,13 @@ export default ({startGame}) => {
 	}
 
 	const questions = questionsData.map((questionData, index) => (
-		<Question key={index} questionIndex={index} data={questionData} showAnswers={showAnswers} answer={answer}/>
+		<Question key={index} questionIndex={index} questionData={questionData} showAnswers={showAnswers} answer={answer}/>
 	))
 
 	function answer(questionIndex, userAnswer) {
 		setQuestionsData(prev => {
 			return prev.map((questionData, index) => {
-				return index == questionIndex
+				return index === questionIndex
 					? {...questionData, userAnswer: userAnswer}
 					: questionData
 			})
@@ -63,7 +66,7 @@ export default ({startGame}) => {
 		)
 	}
 
-	if (questionsData.length == 0) {
+	if (questionsData.length === 0) {
 		return (
 			<div className="container loading--container">
 				<img className="loading--image" alt="Loading..." src="images/loading.gif"/>
