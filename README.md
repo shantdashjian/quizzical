@@ -25,23 +25,27 @@ https://quizzical-shant.netlify.app/
 [![demo](images/demo.png)](https://scrimba.com/scrim/co45f42ffa92703ad5b730469)
 
 ## How to Use the Application
-* Player browses to the app's welcome page.
-* App displays 5 trivia questions with 4 multiple choice answers.
-* Players clicks on the answer to each questions.
-* Player clicks on Check Answers.
-* Correct answers should get highlighted, and a total score and time taken to answer should display.
-* Player can click on Play Again to restrat the game. 
+1. Player browses to the app's welcome page.
+1. App displays 5 trivia questions each with 4 multiple choice answers.
+1. Player clicks on the answer to each questions.
+1. Player clicks on Check Answers.
+1. Correct answers should get highlighted, and a total score and time taken to answer should display.
+1. Player can click on Play Again to restart the game. 
 
 ## Technologies Used
-* React.js
-* OTDB API 
+1. [React.js](https://react.dev/)
+1. [Open Trivia Database API](https://opentdb.com/) 
 
 ## Future Feature Sets:
-* Enable the player to choose the number of questions and the level of difficulty.
+1. Enable the player to choose the number of questions and the level of difficulty.
+1. Enable the player to choose questions category and change the app theme accordingly.
 
 ## Stumbling and Learning Points:
-* Learning how to delay the loading image at least a set amount of time, in addition to the delay it takes to load the data.
-  
+* Figuring out how to display the loading image at least for a set amount of time, and at most for the time it takes to load the data.
+```
+const elapsedTime = Date.now() - startTime;
+const delay = Math.max(minQuestionsLoadingDelay - elapsedTime, 0);
+```
 <hr>
 
 [Up](README.md)
