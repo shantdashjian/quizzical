@@ -22,7 +22,7 @@ A trivia app that tests your knowledge in mythology. The UI is built with React 
 https://quizzical-shant.netlify.app/
 
 ## Demo and Code Walkthrough
-<a href="https://scrimba.com/scrim/co45f42ffa92703ad5b730469" target="_blank"><img src="images/demo.png" alt="demo"></a>
+[![demo](images/demo.png)](https://scrimba.com/scrim/co45f42ffa92703ad5b730469)
 
 ## How to Use the Application
 * Player browses to the app's welcome page.
