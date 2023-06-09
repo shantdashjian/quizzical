@@ -1,28 +1,47 @@
-# co9d94a198dc98fbc313c216a
+# Quizzical
+A trivia app that tests your knowledge in mythology. The UI is built with React and fetches fresh mythology trivia questions and answers data from the Open Trivia Database API.
 
-Quick start:
+![welcome](images/welcome.png "Welcome to Quizzical")
 
-```
-$ yarn # npm install
-$ yarn build # npm run build
-````
+![loading](images/loading.png "Loading")
 
-## Development
+![questions](images/questions.png "Questions")
 
-Run Webpack in watch-mode to continually compile the JavaScript as you work:
+![correct answers](images/correct-answers.png "Answers")
 
-```
-$ yarn watch # npm run watch
-```
 
-## About Scrimba
+## In This Document:
+1. [Application URL](#application-url)
+2. [Demo and Code Walkthrough](#demo-and-code-walkthrough)
+3. [How to Use the Application](#how-to-use-the-application)
+4. [Technologies Used](#technologies-used)
+5. [Future Feature Sets](#future-feature-sets)
+6. [Stumbling and Learning Points](#stumbling-and-learning-points)
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
+## Application URL
+https://quizzical-shant.netlify.app/
 
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
+## Demo and Code Walkthrough
+[![demo](images/demo.png)](https://scrimba.com/scrim/co45f42ffa92703ad5b730469)
 
-Happy Coding!
+## How to Use the Application
+* Player browses to the app's welcome page
+* App displays 5 trivia questions with 4 multiple choice answers
+* Players clicks on the answer to each questions
+* Player clicks on Check Answers
+* Correct answers should get highlighted, and a total score and time taken to answer should display
+* PLayer can click on Play Again to restrat the game 
+
+## Technologies Used
+* React.js
+* OTDB API 
+
+## Future Feature Sets:
+* Enable the player to choose the number of questions and the level of difficulty.
+
+## Stumbling and Learning Points:
+* Learning how to delay the loading image at least a set amount of time, in addition to the delay it takes to load the data.
+  
+<hr>
+
+[Up](README.md)
