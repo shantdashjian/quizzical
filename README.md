@@ -22,15 +22,15 @@ A trivia app that tests your knowledge in mythology. The UI is built with React 
 https://quizzical-shant.netlify.app/
 
 ## Demo and Code Walkthrough
-[![demo](images/demo.png)](https://scrimba.com/scrim/co45f42ffa92703ad5b730469)
+<a href="https://scrimba.com/scrim/co45f42ffa92703ad5b730469" target="_blank"><img src="images/demo.png" alt="demo"></a>
 
 ## How to Use the Application
-* Player browses to the app's welcome page
-* App displays 5 trivia questions with 4 multiple choice answers
-* Players clicks on the answer to each questions
-* Player clicks on Check Answers
-* Correct answers should get highlighted, and a total score and time taken to answer should display
-* PLayer can click on Play Again to restrat the game 
+* Player browses to the app's welcome page.
+* App displays 5 trivia questions with 4 multiple choice answers.
+* Players clicks on the answer to each questions.
+* Player clicks on Check Answers.
+* Correct answers should get highlighted, and a total score and time taken to answer should display.
+* Player can click on Play Again to restrat the game. 
 
 ## Technologies Used
 * React.js
