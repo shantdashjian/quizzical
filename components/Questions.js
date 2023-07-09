@@ -9,6 +9,7 @@ export default () => {
 	const [startTime, setStartTime] = React.useState(null)
 
 	const minQuestionsLoadingDelay = 2000
+	const maxQuestionsLoadingDelay = 8000
 
 	const totalScore =
 		`${questionsData.filter(
@@ -24,9 +25,18 @@ export default () => {
 
 	function play() {
 		setQuestionsData([])
-		const startTime = Date.now();
-		fetch("https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple")
-			.then(res => res.json())
+		const startTime = Date.now()
+		const abortFetchIfAPIDownController = new AbortController()
+		const abortFetchIfAPIDownTimeout = setTimeout(() => {
+			abortFetchIfAPIDownController.abort()
+		}, maxQuestionsLoadingDelay)
+		fetch("https://opentdb.com/api.php?amount=5&category=20&difficulty=easy&type=multiple",
+			{
+				signal: abortFetchIfAPIDownController.signal
+			})
+			.then(res => {
+				return res.json()
+			})
 			.then(data => {
 				if (data.results.length === 0) {
 					throw Error('No results were sent back from the questions database!')
@@ -40,8 +50,17 @@ export default () => {
 				}, delay)
 			})
 			.catch(error => {
-				setErrorMessage(`Error fetching questions data: ${error}`);
+				if (error.name === 'AbortError') {
+					setErrorMessage('Error fetching questions data: API is down!')
+				} else {
+					setErrorMessage(`Error fetching questions data: ${error.message}`);
+				}
 			})
+			.finally(
+				() => {
+					clearTimeout(abortFetchIfAPIDownTimeout)
+				}
+			)
 	}
 
 	const questions = questionsData.map((questionData, index) => (
@@ -87,7 +106,8 @@ export default () => {
 			)}
 			{showAnswers && (
 				<div className="results-container">
-					<span className="total-score-text">You scored {totalScore} correct answers in {timeToAnswerInSeconds} seconds!</span>
+					<span
+						className="total-score-text">You scored {totalScore} correct answers in {timeToAnswerInSeconds} seconds!</span>
 					<button className="play-again-button" onClick={play}>Play again</button>
 				</div>
 			)}

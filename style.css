@@ -55,7 +55,7 @@ main {
 }
 
 .questions--container, .error--container {
-    padding: 3em 1.5em 1.7em;
+    padding: 1.7em 1.5em 1.7em;
     width: 330px;
 }
 
@@ -187,7 +187,7 @@ button:focus {
 
 @media screen and (min-width: 361px) {
     .questions--container, .error--container {
-        padding: 3em 2em 1.7em;
+        padding: 1.7em 2em 1.7em;
         width: 90%;
     }
 
